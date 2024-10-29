@@ -164,7 +164,7 @@ const sortByOverallScore = () => {
          <div className={` ${show?' h-[70px] left-[300px] px-5 right-[300px] '
         :
          ' w-[40px] h-[40px] bg-black/20  flex items-center justify-center left-[50vw] right-[50vw]'} 
-         h-[70px] rounded-3xl backdrop-blur-sm transition-all duration-500
+          rounded-3xl backdrop-blur-sm transition-all duration-500
           fixed max-sm:top-[20px] bottom-10 mt-[60px]  max-sm:left-0 max-sm:right-0
          max-sm:scale-75  
        z-[4000]  border shadow-xl flex items-center `}>
