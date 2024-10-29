@@ -39,7 +39,7 @@ const LoginSignUp:React.FC = () => {
         if(localStorage.getItem('uhhnjX56g7009ijhvjjycb8yubuibsd')==='true'){
             window.location.href='/Rankings';
         }
-    },[])
+    })
 
     const updateUser = (RollNumber:string) =>{
         axios.post(url+'/update_user',{RollNumber})
