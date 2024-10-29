@@ -157,8 +157,68 @@ const sortByOverallScore = () => {
 
     const [sortSno,setSortSno] = useState<number>(1);
 
+    const [show,setShow] = useState<boolean>(true);
+
   return (
     <div className=' mt-[60px] h-fit w-[99vw] flex  relative'>
+         <div className={` ${show?' h-[70px] left-[300px] right-[300px] ':' h-[40px] bg-black/80 w-0 left-[50vw right-[50vw]'} h-[70px] rounded-3xl backdrop-blur-sm
+          fixed max-sm:top-[0px] bottom-10 mt-[60px]  max-sm:left-0 max-sm:right-0
+         max-sm:scale-75  
+       z-[4000]  border shadow-xl flex items-center px-5`}>
+        { show ? <>
+            <div className=' absolute top-[-5px] right-[-5px] bg-black/50 
+             backdrop-blur-sm w-7 h-7 rounded-full'></div>
+            <div className="relative">
+            <div className="absolute inset-y-0 start-0 flex items-center
+             ps-3 pointer-events-none">
+              <svg
+                className="w-4 h-4 text-gray-500 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="search"
+              className="block w-full min-w-[300px] p-4 ps-10 text-sm text-gray-900 border 
+               border-gray-300 rounded-full px-7 bg-gray-50
+                focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Search"
+              required
+            />
+            </div>
+        </>
+        :
+        <div className=' h-full
+         w-full pt-3 '>
+             <svg
+                className="w-4 h-4 text-gray-500 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+        </div>
+        }
+        </div>
             <table className='pb-14 absolute top-0 left-0 snap-x snap-mandatory'>
                 <thead>
                     <tr>
