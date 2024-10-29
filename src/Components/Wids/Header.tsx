@@ -17,31 +17,31 @@ const Header:React.FC = () => {
                   {localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS')!==null?
                               <a href={"/user/"+localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS')}>
                                   <div className={` hover:scale-105 transition-all
-                                    text-${path.startsWith("/user/")?'xl':'md'} font-4`}>
+                                    text-lg ${path.startsWith("/user/")?' underline text-sky-300':''} font-4`}>
                                       <p>Profile</p>
                                   </div>                        
                               </a>
                           :
                             <a href={"/login"}>
                             <div className={` hover:scale-105 transition-all
-                               text-${path==='/login'?'xl':'md'} font-4`}>
+                               text-lg ${path==='/login'?' underline text-sky-300':''} font-4`}>
                                 <p>Login</p>
                             </div>                             </a>                
                     }
-                    {/* <div className={` hover:scale-105 transition-all
-                         text-${path==='/'?'xl':'md'} font-4`}>
+                    <div className={` hover:scale-105 transition-all
+                         text-lg ${path==='/'?'underline text-sky-300':''} font-4`}>
                         <a href="/">Home</a>
                     </div>
                     <div className={` hover:scale-105 transition-all
-                         text-${path==='/'?'xl':'md'} font-4`}>
+                         text-lg ${path==='/'?' underline text-sky-300':''} font-4`}>
                         <a href="/">Home</a>
-                    </div> */}
+                    </div>
                     <div className={` hover:scale-105 transition-all
-                         text-${path==='/rankings'?'xl':'md'} font-4`}>
+                         text-lg ${path==='/rankings'?'underline text-sky-300':''} font-4`}>
                         <a href="/Rankings">Rankings</a>
                     </div>
                     <div className={` hover:scale-105 transition-all
-                         text-${path==='/'?'xl':'md'} font-4`}>
+                         text-lg ${path==='/'?'underline text-sky-300':''} font-4`}>
                         <a href="/">Home</a>
                     </div>
                    

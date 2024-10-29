@@ -157,17 +157,23 @@ const sortByOverallScore = () => {
 
     const [sortSno,setSortSno] = useState<number>(1);
 
-    const [show,setShow] = useState<boolean>(true);
+    const [show,setShow] = useState<boolean>(false);
 
   return (
     <div className=' mt-[60px] h-fit w-[99vw] flex  relative'>
-         <div className={` ${show?' h-[70px] left-[300px] right-[300px] ':' h-[40px] bg-black/80 w-0 left-[50vw right-[50vw]'} h-[70px] rounded-3xl backdrop-blur-sm
-          fixed max-sm:top-[0px] bottom-10 mt-[60px]  max-sm:left-0 max-sm:right-0
+         <div className={` ${show?' h-[70px] left-[300px] px-5 right-[300px] '
+        :
+         ' w-[40px] h-[40px] bg-black/20  flex items-center justify-center left-[50vw] right-[50vw]'} 
+         h-[70px] rounded-3xl backdrop-blur-sm transition-all duration-500
+          fixed max-sm:top-[20px] bottom-10 mt-[60px]  max-sm:left-0 max-sm:right-0
          max-sm:scale-75  
-       z-[4000]  border shadow-xl flex items-center px-5`}>
-        { show ? <>
-            <div className=' absolute top-[-5px] right-[-5px] bg-black/50 
-             backdrop-blur-sm w-7 h-7 rounded-full'></div>
+       z-[4000]  border shadow-xl flex items-center `}>
+        { show ? 
+        <>
+            <div onClick={()=>setShow(false)} className=' absolute top-[-5px] right-[-5px] bg-black/50 
+             backdrop-blur-sm w-7 h-7 rounded-full flex items-center justify-center'>
+                <ArrowIcon color='white'/>
+             </div>
             <div className="relative">
             <div className="absolute inset-y-0 start-0 flex items-center
              ps-3 pointer-events-none">
@@ -199,8 +205,8 @@ const sortByOverallScore = () => {
             </div>
         </>
         :
-        <div className=' h-full
-         w-full pt-3 '>
+        <div onClick={()=>{setShow(true)}} className=' h-full
+         w-full pt-3 pl-3 '>
              <svg
                 className="w-4 h-4 text-gray-500 "
                 aria-hidden="true"
@@ -222,8 +228,9 @@ const sortByOverallScore = () => {
             <table className='pb-14 absolute top-0 left-0 snap-x snap-mandatory'>
                 <thead>
                     <tr>
-                        <th className=' snap-center border max-sm:w-[10vw] max-sm:z-[100] max-sm:text-sm px-6 text-xl stciker z-50 relative
-                        left-0 truncate py-14 min-w-[10vw] top-0 font-semibold bg-white'>
+                        <th className=' snap-center border max-sm:w-[10vw] max-sm:z-[100] max-sm:text-sm px-6
+                         text-xl stciker z-50 relative
+                        left-0 truncate py-14 max-sm:py-0  min-w-[10vw] top-0 font-semibold bg-white'>
                             <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                             <div onClick={()=>{
                                 sortByOverallScore();
@@ -234,7 +241,7 @@ const sortByOverallScore = () => {
                                 </div>
                             </div>
                             </th>
-                        <th className=' snap-center parent border max-sm:text-sm text-xl  z-10 truncate py-14 font-semibold min-w-[17vw]
+                        <th className=' snap-center parent border max-sm:text-sm text-xl  z-10 truncate py-14 max-sm:py-0 font-semibold min-w-[17vw]
                         bg-white px-5'>
                             <div onClick={()=>{
                                 sortByRollNumber();
@@ -246,7 +253,7 @@ const sortByOverallScore = () => {
                             </div>
                             <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                         </th>
-                        <th  className=' snap-center border max-sm:text-sm max-sm:z-[70] text-xl truncate py-14 font-semibold top-0 stciker left-[10vw]
+                        <th  className=' snap-center border max-sm:text-sm max-sm:z-[70] text-xl truncate py-14 max-sm:py-0 font-semibold top-0 stciker left-[10vw]
                          max-sm:left-[19vw] min-w-[22vw] bg-white px-5'>
                             <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                             <div onClick={()=>{
@@ -258,7 +265,7 @@ const sortByOverallScore = () => {
                                 </div>
                             </div>
                         </th>
-                        <th className=' snap-center border max-sm:z-[60] max-sm:text-sm text-xl truncate py-14 font-semibold min-w-[17vw] top-0 stciker left-[32vw] bg-white'>
+                        <th className=' snap-center border max-sm:z-[60] max-sm:text-sm text-xl truncate py-14 max-sm:py-0 font-semibold min-w-[17vw] top-0 stciker left-[32vw] bg-white'>
                         <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                         <div onClick={()=>{
                                 sortByBranch();
@@ -270,7 +277,7 @@ const sortByOverallScore = () => {
                             </div></th>
                         <th className=' snap-center th22 z-10 border max-sm:text-sm truncate font-semibold min-w-[20vw] px-0 '>
                             <div className='w-full h-full flex flex-col'>
-                                <div className='w-full pb-6 text-xl bg-black/0'>
+                                <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByLeetCodeScore();
                             }} className=' parent bg-black/0 py-5 h-full  max-sm:text-sm w-full text-black'>
@@ -283,13 +290,13 @@ const sortByOverallScore = () => {
                                 <hr />
                                 <div className='w-full h-full pt-3 flex text-wrap items-center justify-center flex-col'>
                                     <div>Total</div>
-                                    <div className='h-fit text-sm font-normal max-sm:text-[8px]'>(Easy*1 + Medium*3 + Hard*5)</div>
+                                    <div className='h-fit text-sm font-normal max-sm:text-[8px]  w-[full] truncate'>(Easy*1 + Medium*3 + Hard*5)</div>
                                 </div>
                             </div>
                         </th>
                         <th className=' snap-center  border z-10 max-sm:text-sm truncate font-semibold min-w-[20vw] px-0 '>
                             <div className='w-full h-full flex flex-col'>
-                                <div className='w-full pb-6 text-xl bg-black/0'>
+                                <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByCodeChefScore();
                             }} className=' parent bg-black/0 py-5 h-full max-sm:text-sm w-full text-black'>
@@ -301,13 +308,13 @@ const sortByOverallScore = () => {
                                 <hr />
                                 <div className='w-full h-full pt-3 flex text-wrap items-center justify-center flex-col'>
                                     <div>Total</div>
-                                    <div className='h-fit text-sm font-normal max-sm:text-[8px]'>(Contest*5 + Problem Solved)</div>
+                                    <div className='h-fit text-sm font-normal max-sm:text-[8px]  w-[full] truncate'>(Contest*5 + Problem Solved)</div>
                                 </div>
                             </div>
                         </th>
                         <th className=' snap-center  border z-10 max-sm:text-sm truncate font-semibold min-w-[20vw] px-0 '>
                             <div className='w-full h-full flex flex-col'>
-                                <div className='w-full pb-6 text-xl bg-black/0'>
+                                <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByGeeksForGeeksScore();
                                     }} className=' parent bg-black/0 py-5 h-full max-sm:text-sm w-full text-black'>
@@ -320,13 +327,13 @@ const sortByOverallScore = () => {
                                 <hr />
                                 <div className='w-full h-full pt-3 flex text-wrap items-center justify-center flex-col'>
                                     <div>Total</div>
-                                    <div className='h-fit text-sm font-normal max-sm:text-[8px]'>(Problem Solved + Contest*2)</div>
+                                    <div className='h-fit text-sm font-normal max-sm:text-[8px]  w-[full] truncate'>(Problem Solved + Contest*2)</div>
                                 </div>
                             </div>
                         </th>
                         <th className=' snap-center  border z-10 max-sm:text-sm truncate font-semibold min-w-[20vw] px-0 '>
                             <div className='w-full h-full flex flex-col'>
-                                <div className='w-full pb-6 text-xl bg-black/0'>
+                                <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByHackerRankScore();
                             }} className=' parent bg-black/0 py-5 max-sm:text-sm h-full w-full text-black'>
@@ -339,11 +346,11 @@ const sortByOverallScore = () => {
                                 <hr />
                                 <div className='w-full h-full pt-3 flex text-wrap items-center justify-center flex-col'>
                                     <div>Total</div>
-                                    <div className='h-fit text-sm font-normal max-sm:text-[8px]'>(Based on Badges and Certificates)</div>
+                                    <div className='h-fit text-sm font-normal max-sm:text-[8px] w-[full] truncate'>(Based on Badges and Certificates)</div>
                                 </div>
                             </div>
                         </th>
-                        <th className=' snap-center  border max-sm:text-sm text-xl truncate py-14 font-semibold min-w-[20vw] bg-white px-5 '>
+                        <th className=' snap-center  border max-sm:text-sm text-xl truncate py-14 max-sm:py-0 font-semibold min-w-[20vw] bg-white px-5 '>
                         <div onClick={()=>{
                                 sortByOverallScore();
                             }} className=' parent bg-black/0 py-5 h-full w-full text-black'>

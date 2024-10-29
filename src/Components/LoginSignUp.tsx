@@ -182,7 +182,7 @@ const LoginSignUp:React.FC = () => {
                     <p className=' font-thin'>Roll Number</p>
                     <input type="text"  value={roll}
                     onChange={(e)=>{
-                        setRoll(e.target.value.trim().toUpperCase());
+                        setRoll(e.target.value.trim());
                     }}
                     className=' w-[80%] py-3 px-4 rounded-lg border
                       text-black font-extralight focus:font-normal '
