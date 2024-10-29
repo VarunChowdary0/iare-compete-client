@@ -205,8 +205,8 @@ const sortByOverallScore = () => {
             </div>
         </>
         :
-        <div onClick={()=>{setShow(true)}} className=' h-full
-         w-full pt-3 pl-3 '>
+        <div onClick={()=>{setShow(true)}} className=' h-[40px]
+         w-[40px] pt-3 pl-3 '>
              <svg
                 className="w-4 h-4 text-gray-500 "
                 aria-hidden="true"
