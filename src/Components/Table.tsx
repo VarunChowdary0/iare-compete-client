@@ -468,9 +468,11 @@ const sortByOverallScore = () => {
                                 <td className=' sna bg-inherit z-0 relative max-sm:text-sm px-4 truncate py-2'>
                                 <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                                 
-                                <p className={sortSno===2 ? ' text-orange-700 font-semibold scale-105':'text-black'}>
-                                {ele.RollUMN}
+                                <a target='_self' href={`/user/${ele.RollUMN}`}>
+                                    <p className={sortSno===2 ? ' text-orange-700 font-semibold scale-105':'text-black'}>
+                                    {ele.RollUMN}
                                 </p>
+                                </a>
                                 </td>
                                 <td className=' sna bg-inherit z-50 relative max-sm:text-sm stciker left-[10vw] max-sm:left-[19vw] px-4 truncate py-2'>
                                 <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
