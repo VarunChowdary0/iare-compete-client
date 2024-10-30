@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HomeIcon from "../Icons/HomeIcon";
 import UserIcon from "../Icons/UserIcon";
 import PeopleIcon from "../Icons/PeopleIcon";
+import SettingsIcon from "../Icons/SettingsIcon";
 
 const Menu: React.FC = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -42,7 +43,9 @@ const Menu: React.FC = () => {
                 </a>
             </div>
             <div>
-                <HomeIcon color={path==='/'?'white':'grey'} scale={1}/>
+                <a href="/Settings">
+                    <SettingsIcon color={path==='/settings'?'white':'grey'} scale={1}/>
+                </a>
             </div>
             <div>
                 <HomeIcon color={path==='/'?'white':'grey'} scale={1}/>

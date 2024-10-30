@@ -44,16 +44,13 @@ const LoginSignUp:React.FC = () => {
     const updateUser = (RollNumber:string) =>{
         axios.post(url+'/update_user',{RollNumber})
         .then((res)=>{
+            localStorage.setItem('uhhnjX56g7009ijhvjjycb8yubuibsd','true');
             console.log(res.data);
         })
         .catch((er)=>{
             console.log(er);
         })
     }
-
-    // useEffect(()=>{
-    //     console.log(Department);
-    // },[Department]);
 
     const login = () => {
         if(roll.length === 10){
@@ -67,7 +64,6 @@ const LoginSignUp:React.FC = () => {
                     if(res.data.message === 'Correct'){
                         setMessage("✅ Login Success.")
                         localStorage.setItem('J99JX223edqwnjuhpiywgvcKIKBAS',res.data.expire_time);
-                        localStorage.setItem('uhhnjX56g7009ijhvjjycb8yubuibsd','true');
                         localStorage.setItem('rollafsamsdkjbnnsan_9U9jvobdS',roll);
                         updateUser(roll);
                         setTimeout(()=>{

@@ -11,6 +11,8 @@ import DashBoard from './Components/DashBoard';
 import Menu from './Components/Menu';
 import HomePage from './HomePage';
 import Header from './Components/Wids/Header';
+import Settings from './Components/Settings';
+import ErrorPage from './Components/ErrorPage';
 
 const router = createBrowserRouter([{
     path:"/",
@@ -31,6 +33,12 @@ const router = createBrowserRouter([{
   ,{
     path:"/user/:roll",
     element:<DashBoard/>
+  },{
+    path:"/settings",
+    element:<Settings/>
+  },{
+    path:"/:rout",
+    element:<ErrorPage/>
   }
 
 ])

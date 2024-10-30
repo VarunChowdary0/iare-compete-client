@@ -44,7 +44,9 @@ const ExpiaryCheacker: React.FC = () => {
     <>
       {
         logged ? (
-          <div className={`px-2 py-1 max-sm:top-11 max-sm:right-0 rounded-lg scale-75  w-fit
+          <div onClick={()=>{
+            localStorage.clear();
+          }} className={`px-2 py-1 max-sm:top-11 max-sm:right-0 rounded-lg scale-75  w-fit
           fixed top-4 right-10 z-[2000] flex items-center 
           ${timeRemaining < '10m 0s'?' bg-[#ff5d18] text-white fill-white border-black':'bg-[#ffffff]'}
           justify-center gap-2 border shadow-lg`}>
