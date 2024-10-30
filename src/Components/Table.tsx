@@ -9,14 +9,14 @@ const Table:React.FC = () => {
         RollUMN: string;
         Name: string;
         Department: string;
-        lc_username: string|null;
+        lc_username: string|'';
         lc_easy: number;
         lc_medium: number;
         lc_hard: number;
         cc_contests: number | 0;
         cc_problemsolved: number | 0;
-        cc_username: string | null;
-        hrc_username: string | null;
+        cc_username: string | '';
+        hrc_username: string | '';
         hrc_oneStarBadge: number;
         hrc_twoStarBadge: number;
         hrc_threeStarBadge: number;
@@ -25,7 +25,7 @@ const Table:React.FC = () => {
         hrc_AdvancedCertifications: number;
         hrc_IntermediateCertifications: number;
         hrc_BasicCertifications: number;
-        gfg_username: string;
+        gfg_username: string|'';
         gfg_rank: number;
         gfg_problemSolved: number;
         gfg_contestRating: number;
@@ -47,6 +47,7 @@ const Table:React.FC = () => {
                 console.log(err)
             })
     },[])
+
 
     // useEffect(()=>{
     //     if(data){
@@ -159,6 +160,93 @@ const sortByOverallScore = () => {
 
     const [show,setShow] = useState<boolean>(false);
 
+    const [search,setSearch] = useState<string>('');
+
+    const [searched,setsearched] = useState<{
+        rank : number,
+        RollUMN: string;
+        Name: string;
+        Department: string;
+        lc_username: string|'';
+        lc_easy: number;
+        lc_medium: number;
+        lc_hard: number;
+        cc_contests: number | 0;
+        cc_problemsolved: number | 0;
+        cc_username: string | '';
+        hrc_username: string | '';
+        hrc_oneStarBadge: number;
+        hrc_twoStarBadge: number;
+        hrc_threeStarBadge: number;
+        hrc_fourStarBadge: number;
+        hrc_fiveStarBadge: number;
+        hrc_AdvancedCertifications: number;
+        hrc_IntermediateCertifications: number;
+        hrc_BasicCertifications: number;
+        gfg_username: string| '';
+        gfg_rank: number;
+        gfg_problemSolved: number;
+        gfg_contestRating: number;
+        gfg_score: number;
+        LC_S:number|0;
+        CC_S:number;
+        GFG_S:number;
+        HRC_S:number;
+        OverallScore:number;
+      }[]>();
+    const [filtered,setfiltered] = useState<{
+        rank : number,
+        RollUMN: string;
+        Name: string;
+        Department: string;
+        lc_username: string|'';
+        lc_easy: number;
+        lc_medium: number;
+        lc_hard: number;
+        cc_contests: number | 0;
+        cc_problemsolved: number | 0;
+        cc_username: string | '';
+        hrc_username: string | '';
+        hrc_oneStarBadge: number;
+        hrc_twoStarBadge: number;
+        hrc_threeStarBadge: number;
+        hrc_fourStarBadge: number;
+        hrc_fiveStarBadge: number;
+        hrc_AdvancedCertifications: number;
+        hrc_IntermediateCertifications: number;
+        hrc_BasicCertifications: number;
+        gfg_username: string| '';
+        gfg_rank: number;
+        gfg_problemSolved: number;
+        gfg_contestRating: number;
+        gfg_score: number;
+        LC_S:number|0;
+        CC_S:number;
+        GFG_S:number;
+        HRC_S:number;
+        OverallScore:number;
+      }[]>();
+    
+    
+    useEffect(()=>{
+        setsearched(data);
+        setfiltered(data);
+    },[data])
+
+    useEffect(()=>{
+        if (filtered?.length){
+            const searchededData = filtered.filter(item =>
+                item.Name.toLowerCase().includes(search.toLowerCase()) || 
+                item.RollUMN.toLowerCase().includes(search.toLowerCase()) ||
+                (item.lc_username &&item.lc_username.toLowerCase().includes(search.toLowerCase())) ||
+                (item.cc_username &&item.cc_username.toLowerCase().includes(search.toLowerCase())) ||
+                (item.hrc_username &&item.hrc_username.toLowerCase().includes(search.toLowerCase())) ||
+                (item.gfg_username &&item.gfg_username.toLowerCase().includes(search.toLowerCase()))
+            );
+            setsearched(searchededData);
+        }
+    },[search])
+
   return (
     <div className=' mt-[60px] h-fit w-[99vw] flex  relative'>
          <div className={` ${show?' h-[70px] left-[300px] px-5 right-[300px] '
@@ -196,6 +284,10 @@ const sortByOverallScore = () => {
             <input
               type="search"
               id="search"
+              value={search}
+              onChange={(e)=>{
+                setSearch(e.target.value);
+              }}
               className="block w-full min-w-[300px] p-4 ps-10 text-sm text-gray-900 border 
                border-gray-300 rounded-full px-7 bg-gray-50
                 focus:ring-blue-500 focus:border-blue-500"
@@ -363,7 +455,7 @@ const sortByOverallScore = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data?.map((ele, idx) => {
+                    {searched?.map((ele, idx) => {
                         return (
                             <>
                             <tr key={idx} className='even:bg-white odd:bg-[#f3f3f3]'>
