@@ -540,7 +540,7 @@ const sortByOverallScore = () => {
                     }}
                     className=" parent hover:cursor-pointer bg-black/0 py-5 h-full max-sm:text-sm w-full text-black"
                   >
-                    <div className=" absolute top-3 left-[5%] max-md:top-12 max-md:left-[40%] max-md:scale-75 max-sm:hidden ">
+                    <div className=" absolute top-3 left-[5px] max-md:top-12 max-md:left-[40%] max-md:scale-75 max-sm:hidden ">
                       <GeekforGeeks color="orange" scale={1} />
                     </div>
                     GeekforGeeks (GFG)
