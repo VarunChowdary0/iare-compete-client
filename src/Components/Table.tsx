@@ -2,6 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import url from './Constants'
 import ArrowIcon from '../Icons/ArrowIcon'; 
+import Hacker_Rank from '../Icons/Hacker_Rank';
+import GeekforGeeks from '../Icons/GeekforGeeks';
+import Code_Chef from '../Icons/Code_Chef';
+import ClockIcon from '../Icons/ClockIcon';
+import CloseIcon from '../Icons/CloseIcon';
+import Leet_Code from '../Icons/Leet_Code';
 
 const Table:React.FC = () => {
     const [data,setData] = useState<{
@@ -260,7 +266,7 @@ const sortByOverallScore = () => {
         <>
             <div onClick={()=>setShow(false)} className=' absolute top-[-5px] right-[-5px] bg-black/50 
              backdrop-blur-sm w-7 h-7 rounded-full flex items-center justify-center'>
-                <ArrowIcon color='white'/>
+                <CloseIcon size={1} color='white'/>
              </div>
             <div className="relative">
             <div className="absolute inset-y-0 start-0 flex items-center
@@ -326,18 +332,18 @@ const sortByOverallScore = () => {
                             <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                             <div onClick={()=>{
                                 sortByOverallScore();
-                            }} className=' parent bg-black/0 py-5 h-full w-full text-black bg-[#ffffff]'>
+                            }} className=' parent hover:cursor-pointer bg-black/0 py-5 h-full w-full text-black bg-[#ffffff]'>
                                 Rank
                                 <div className={` ${sortSno===1?" absolute":'child'} max-sm:bottom-0  max-sm:right-3 right-1 bottom-6`}>
                                     <ArrowIcon color={sortSno===1?'#000':'#aaaaaa'}/>
                                 </div>
                             </div>
                             </th>
-                        <th className=' snap-center parent border max-sm:text-sm text-xl  z-10 truncate py-14 max-sm:py-0 font-semibold min-w-[17vw]
+                        <th className=' snap-center parent hover:cursor-pointer border max-sm:text-sm text-xl  z-10 truncate py-14 max-sm:py-0 font-semibold min-w-[17vw]
                         bg-white px-5'>
                             <div onClick={()=>{
                                 sortByRollNumber();
-                            }} className=' parent bg-black/0 py-5 h-full w-full text-black'>
+                            }} className=' parent hover:cursor-pointer bg-black/0 py-5 h-full w-full text-black'>
                                 Roll Number
                                 <div className={` ${sortSno===2?" absolute":'child'} max-sm:bottom-0  max-sm:right-8 right-4 bottom-6`}>
                                 <ArrowIcon color={sortSno===2?'#000':'#aaaaaa'}/>
@@ -350,7 +356,7 @@ const sortByOverallScore = () => {
                             <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                             <div onClick={()=>{
                                 sortByName();
-                            }} className=' parent bg-black/0 py-5 h-full w-full text-black'>
+                            }} className=' parent hover:cursor-pointer bg-black/0 py-5 h-full w-full text-black'>
                                 Name
                                 <div className={` ${sortSno===3?" absolute":'child'} max-sm:bottom-0  max-sm:right-17 right-20 bottom-6`}>
                                 <ArrowIcon color={sortSno===3?'#000':'#aaaaaa'}/>
@@ -361,7 +367,7 @@ const sortByOverallScore = () => {
                         <div className=' absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]'></div>
                         <div onClick={()=>{
                                 sortByBranch();
-                            }} className=' parent bg-black/0 py-5 h-full w-full text-black'>
+                            }} className=' parent hover:cursor-pointer bg-black/0 py-5 h-full w-full text-black'>
                                 Branch
                                 <div className={` ${sortSno===4?" absolute":'child'} max-sm:bottom-0  max-sm:right-7 right-16 bottom-6`}>
                                 <ArrowIcon color={sortSno===4?'#000':'#aaaaaa'}/>
@@ -372,9 +378,12 @@ const sortByOverallScore = () => {
                                 <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByLeetCodeScore();
-                            }} className=' parent bg-black/0 py-5 h-full  max-sm:text-sm w-full text-black'>
+                            }} className=' parent hover:cursor-pointer bg-black/0 py-5 h-full  max-sm:text-sm w-full text-black'>
+                                <div className=' absolute top-4 left-[10%] max-md:top-12 max-md:left-[40%] max-md:scale-75 max-sm:hidden '>
+                                    <Leet_Code color='orange' scale={1} />
+                                </div>
                                 LeetCode (LC)
-                                <div className={` ${sortSno===5?" absolute":'child'} max-sm:bottom-0  max-sm:right-8 right-20 bottom-6`}>
+                                <div className={` ${sortSno===5?" absolute":'child'} max-sm:bottom-0  max-sm:right-8 right-16 bottom-6`}>
                                 <ArrowIcon color={sortSno===5?'#000':'#aaaaaa'}/>
                                 </div>
                             </div>
@@ -386,14 +395,17 @@ const sortByOverallScore = () => {
                                 </div>
                             </div>
                         </th>
-                        <th className=' snap-center  border z-10 max-sm:text-sm truncate font-semibold min-w-[20vw] px-0 '>
+                        <th className=' snap-center  relative border z-10 max-sm:text-sm truncate font-semibold min-w-[20vw] px-0 '>
                             <div className='w-full h-full flex flex-col'>
-                                <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
+                                <div className='w-full pb-[-3px] max-sm:h-[62px] h-[92px] text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByCodeChefScore();
-                            }} className=' parent bg-black/0 py-5 h-full max-sm:text-sm w-full text-black'>
-                                CodeChef (CC)
-                                <div className={` ${sortSno===6?" absolute":'child'} max-sm:bottom-0  max-sm:right-8 right-16 bottom-6`}>
+                            }} className=' parent hover:cursor-pointer bg-black/0 h-full max-sm:text-sm w-full pb-[50px] bg-black  text-black'>
+                                <div className=' scale-75 max-sm:pt-3 h-24 '>
+                                    <Code_Chef color='green' scale={0.5} />
+                                </div>
+                                {/* CodeChef (CC) */}
+                                <div className={` ${sortSno===6?" absolute":'child'} max-sm:bottom-0  max-sm:right-8 right-20 bottom-4`}>
                                 <ArrowIcon color={sortSno===6?'#000':'#aaaaaa'}/>
                                 </div>
                             </div></div>
@@ -409,9 +421,12 @@ const sortByOverallScore = () => {
                                 <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByGeeksForGeeksScore();
-                                    }} className=' parent bg-black/0 py-5 h-full max-sm:text-sm w-full text-black'>
+                                    }} className=' parent hover:cursor-pointer bg-black/0 py-5 h-full max-sm:text-sm w-full text-black'>
+                                       <div className=' absolute top-3 left-[5%] max-md:top-12 max-md:left-[40%] max-md:scale-75 max-sm:hidden '>
+                                                <GeekforGeeks color='orange' scale={1} />
+                                        </div>
                                         GeekforGeeks (GFG)
-                                        <div className={` ${sortSno===7?" absolute":'child'} max-sm:bottom-0  max-sm:right-10 right-16 bottom-6`}>
+                                        <div className={` ${sortSno===7?" absolute":'child'} max-sm:bottom-0  max-sm:right-10 right-12 bottom-6`}>
                                         <ArrowIcon color={sortSno===7?'#000':'#aaaaaa'}/>
                                         </div>
                             </div>
@@ -428,9 +443,12 @@ const sortByOverallScore = () => {
                                 <div className='w-full pb-6 text-xl max-sm:p-0 bg-black/0'>
                                 <div onClick={()=>{
                                 sortByHackerRankScore();
-                            }} className=' parent bg-black/0 py-5 max-sm:text-sm h-full w-full text-black'>
+                            }} className=' parent hover:cursor-pointer bg-black/0 py-5 max-sm:text-sm h-full w-full text-black'>
+                                <div className=' absolute top-4 left-[10%] max-md:top-12 max-md:left-[40%] max-md:scale-75 max-sm:hidden '>
+                                    <Hacker_Rank color='green' scale={1} />
+                                </div>
                                 HackerRank (HR)
-                                <div className={` ${sortSno===8?" absolute":'child'} max-sm:bottom-0  max-sm:right-10 right-20 bottom-6`}>
+                                <div className={` ${sortSno===8?" absolute":'child'} max-sm:bottom-0  max-sm:right-10 right-16 bottom-6`}>
                                 <ArrowIcon color={sortSno===8?'#000':'#aaaaaa'}/>
                                 </div>
                             </div>
@@ -445,7 +463,7 @@ const sortByOverallScore = () => {
                         <th className=' snap-center  border max-sm:text-sm text-xl truncate py-14 max-sm:py-0 font-semibold min-w-[20vw] bg-white px-5 '>
                         <div onClick={()=>{
                                 sortByOverallScore();
-                            }} className=' parent bg-black/0 py-5 h-full w-full text-black'>
+                            }} className=' parent hover:cursor-pointer bg-black/0 py-5 h-full w-full text-black'>
                                 Overall Score
                                 <div className={` ${sortSno===1?" absolute":'child'} max-sm:bottom-0  max-sm:right-9 right-12 bottom-6`}>
                                     <ArrowIcon color='#000'/>
@@ -455,7 +473,8 @@ const sortByOverallScore = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {searched?.map((ele, idx) => {
+                    {searched?
+                    searched?.map((ele, idx) => {
                         return (
                             <>
                             <tr key={idx} className='even:bg-white odd:bg-[#f3f3f3]'>
@@ -542,7 +561,13 @@ const sortByOverallScore = () => {
                             </tr>
                             </>
                         );
-                    })}
+                    })
+                    :
+                    <div className=' fixed top-[60px] bottom-0 left-0 right-0
+                    z-[2000] flex items-center justify-center'>
+                        <div className='loader'></div>
+                    </div>
+                    }
                     <div className=' h-16 w-full bg-black/0'></div>
                 </tbody>
             </table>

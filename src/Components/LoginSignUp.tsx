@@ -23,11 +23,11 @@ const LoginSignUp:React.FC = () => {
     const [Name,setName] = useState<string>("");
     const [Password,setPassword] = useState<string>("");
 
+    const [load,setLoad] = useState<boolean>(false);
 
     useEffect(()=>{
         axios.get(url+"/get-departments")
             .then((res)=>{
-                // console.log(res.data);
                 setDepts(res.data);
             })
             .catch((er)=>{
@@ -45,6 +45,7 @@ const LoginSignUp:React.FC = () => {
         axios.post(url+'/update_user',{RollNumber})
         .then((res)=>{
             localStorage.setItem('uhhnjX56g7009ijhvjjycb8yubuibsd','true');
+            setLoad(false);
             console.log(res.data);
         })
         .catch((er)=>{
@@ -55,6 +56,7 @@ const LoginSignUp:React.FC = () => {
     const login = () => {
         if(roll.length === 10){
             if(Password.length >= 8){
+                setLoad(true);
                 axios.post(url+'/login',{
                     RollNumber:roll,
                     Password:Password
@@ -73,6 +75,7 @@ const LoginSignUp:React.FC = () => {
                     else {
                         if(res.data.message === 'Wrong Password'){
                             setPassword('');
+                            setLoad(false);
                             setMessage("⚠️ Incorrect Password !")
                             setTimeout(()=>{
                                 setMessage('');
@@ -83,6 +86,7 @@ const LoginSignUp:React.FC = () => {
                 .catch((err)=>{
                     console.log(err.response.data.message);
                     setMessage(err.response.data.message)
+                    setLoad(false);
                     setTimeout(()=>{
                         setMessage('');
                     },1700);
@@ -107,6 +111,7 @@ const LoginSignUp:React.FC = () => {
         if(roll.length === 10){
             if(Password.length >= 8){
                 if(Name.trim().length >= 5){
+                    setLoad(true);
                     axios.post(url+'/register',{ 
                         RollNumber:roll,
                         Name,
@@ -117,7 +122,9 @@ const LoginSignUp:React.FC = () => {
                         GfG,
                         Password } 
                 ).then((res)=>{
+                    setLoad(false);
                     console.log(res.data);
+                    setPG(0);
                     setMessage(res.data.message);
                     setTimeout(()=>{
                         setMessage('');
@@ -162,6 +169,7 @@ const LoginSignUp:React.FC = () => {
                 },1700);
         }
     }
+    
   return (
     <div className=' h-screen w-screen bg-[#fffcf7]
     flex items-center justify-center max-sm:px-10'>
@@ -190,19 +198,28 @@ const LoginSignUp:React.FC = () => {
                     onChange={(e)=>{
                         setPassword(e.target.value.trim());
                     }}
+
+                    onKeyDown={(e)=>{
+                        if(e.key==='Enter'){
+                            login();
+                        }
+                    }}
                     className=' w-[80%] py-3 px-4 rounded-lg border
                       text-black font-extralight focus:font-normal '
                      name="username" placeholder='Qw#4</Op39' />
                 </div>
                 <div className=' w-full flex items-center justify-center mt-11'>
-                    <div onClick={()=>{
+                   { load ?
+                   <div className=' loader'></div>
+                   :
+                   <div onClick={()=>{
                         login();
                     }}
                      className=' w-fit px-4 bg-[#8f3249] py-2 rounded-lg 
                      hover:cursor-pointer text-white font-4 active:scale-90 
                      transition-all'>
                         Login
-                    </div>
+                    </div>}
                 </div>
                 <div className=' text-orange-700 text-sm tracking-wide text-center'>
                     <pre>
@@ -311,14 +328,17 @@ const LoginSignUp:React.FC = () => {
                     </div>
                 </div>
                 <div className=' w-full flex items-center justify-center mt-11 max-sm:mt-4'>
+                    { load ?
+                    <div className=' loader '></div>
+                    :
                     <div onClick={()=>{
                             register();
                         }}
                         className=' w-fit px-4 bg-[#8f3249] py-2 rounded-lg 
                         hover:cursor-pointer text-white font-4 active:scale-90 
                         transition-all'>                        Resister
-                        </div>
-                    </div>
+                    </div>}
+                </div>
                 <div className=' text-center text-orange-700 text-sm tracking-wide ml-2'>
                     <pre>
                     {message}

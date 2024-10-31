@@ -1,9 +1,10 @@
 import React from 'react'
 
+
 const Header:React.FC = () => {
   const path = (window.location.pathname.toLowerCase());
   return (
-    <div className=' header z-[4000] fixed top-0 left-0 right-0 bg-[#8f3249] w-full h-[60px] flex items-center'>
+    <div className={` header ${path==='/rankings' ? " z-0 ":" z-[1000] "} fixed top-0 left-0 right-0 bg-[#8f3249] w-full h-[60px] flex items-center`}>
             <div className=' h-[61px] w-fit bg-white px-3'>
                 <a href="/">
                   <img className=' h-[60px] w-[70px] ' src="/images.png" alt="" />
