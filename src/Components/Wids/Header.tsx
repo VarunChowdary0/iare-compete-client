@@ -29,10 +29,11 @@ const Header:React.FC = () => {
                                 <p>Login</p>
                             </div>                             </a>                
                     }
-                    <div className={` hover:scale-105 transition-all
+                   {        Boolean(localStorage.getItem('uhhnjX56g7009ijhvjjycb8yubuibsd')) &&
+                     <div className={` hover:scale-105 transition-all
                          text-lg ${path==='/settings'?'underline text-sky-300':''} font-4`}>
                         <a href="/Settings">Settings</a>
-                    </div>
+                    </div>}
                     {/* <div className={` hover:scale-105 transition-all
                          text-lg ${path==='/'?' underline text-sky-300':''} font-4`}>
                         <a href="/">Home</a>
