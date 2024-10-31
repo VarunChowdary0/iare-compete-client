@@ -49,6 +49,7 @@ const DashBoard: React.FC = () => {
     document.title = roll || "Profile";
   }, []);
   useEffect(()=>{
+    alert("This is Beta !")
     axios.post(url+'/get-user-data',{roll})
     .then((Res)=>{
       console.log(Res.data[0]);
