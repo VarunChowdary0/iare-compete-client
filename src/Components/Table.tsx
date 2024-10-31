@@ -79,31 +79,31 @@ const Table:React.FC = () => {
     // },[data])
 
 const sortByName = () => {
-    if(data){
+    if(searched){
         setSortSno(3);
         console.log("sort Name")
-        setData([...data].sort((a, b) => a.Name.localeCompare(b.Name)));
+        setsearched([...searched].sort((a, b) => a.Name.localeCompare(b.Name)));
     }
 };
 
 const sortByBranch = () => {
-    if(data){
+    if(searched){
         setSortSno(4);
-        setData([...data].sort((a, b) => a.Department.localeCompare(b.Department)));
+        setsearched([...searched].sort((a, b) => a.Department.localeCompare(b.Department)));
     }
 };
 
 const sortByRollNumber = () => {
-    if(data){
+    if(searched){
         setSortSno(2);
-        setData([...data].sort((a, b) => a.RollUMN .localeCompare(b.RollUMN)));
+        setsearched([...searched].sort((a, b) => a.RollUMN .localeCompare(b.RollUMN)));
     }
 };
 
 const sortByLeetCodeScore = () => {
-    if(data){
+    if(searched){
         setSortSno(5);
-        setData([...data].sort((a, b) => {
+        setsearched([...searched].sort((a, b) => {
             const lcA = (a.lc_easy * 1) + (a.lc_medium * 3) + (a.lc_hard * 5);
             const lcB = (b.lc_easy * 1) + (b.lc_medium * 3) + (b.lc_hard * 5);
             return lcB - lcA;
@@ -112,9 +112,9 @@ const sortByLeetCodeScore = () => {
 };
 
 const sortByCodeChefScore = () => {
-    if(data){
+    if(searched){
         setSortSno(6);
-        setData([...data].sort((a, b) => {
+        setsearched([...searched].sort((a, b) => {
         const ccA = (a.cc_contests * 5) + a.cc_problemsolved;
             const ccB = (b.cc_contests * 5) + b.cc_problemsolved;
             return ccB - ccA; // Descending order
@@ -123,9 +123,9 @@ const sortByCodeChefScore = () => {
 };
 
 const sortByGeeksForGeeksScore = () => {
-    if(data){
+    if(searched){
         setSortSno(7);
-        setData([...data].sort((a, b) => {
+        setsearched([...searched].sort((a, b) => {
            const gfgA = a.gfg_problemSolved  ;
            const gfgB = b.gfg_problemSolved ;
            return gfgB - gfgA; // Descending order
@@ -134,18 +134,18 @@ const sortByGeeksForGeeksScore = () => {
 };
 
 const sortByHackerRankScore = () => {
-    if(data){
+    if(searched){
         setSortSno(8);
-        setData([...data].sort((a, b) => {
+        setsearched([...searched].sort((a, b) => {
             return b.HRC_S - a.HRC_S;
         }));
     }
 };
 
 const sortByOverallScore = () => {
-    if(data){
+    if(searched){
         setSortSno(1);
-        setData([...data].sort((a, b) => {
+        setsearched([...searched].sort((a, b) => {
             return b.OverallScore - a.OverallScore;
         }));
     }
@@ -628,6 +628,7 @@ const sortByOverallScore = () => {
                         }
                       >
                         {ele.rank}
+                        <span className=' text-[#a2a2a2] font-thin text-xs pl-2'>({idx+1})</span>
                       </p>
                     </td>
                     <td className=" sna bg-inherit z-0 relative max-sm:text-sm px-4 truncate py-2">
