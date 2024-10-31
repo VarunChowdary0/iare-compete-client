@@ -431,7 +431,7 @@ const sortByOverallScore = () => {
               <div className=" absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]"></div>
             </th>
             <th
-              className=" snap-center border max-sm:text-sm max-sm:z-[70] text-xl truncate py-14 max-sm:py-0 font-semibold top-0 stciker left-[10vw]
+              className=" max-w:[200px] snap-center border max-sm:text-sm max-sm:z-[70] text-xl truncate py-14 max-sm:py-0 font-semibold top-0 stciker left-[10vw]
                          max-sm:left-[19vw] min-w-[22vw] bg-white px-5"
             >
               <div className=" absolute right-0 top-0 bottom-0 w-[0.5px] bg-[#e5e7eb]"></div>
