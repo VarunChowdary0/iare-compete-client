@@ -35,6 +35,7 @@ const LoginSignUp:React.FC = () => {
             })
     },[])
 
+
     useEffect(()=>{
         if(localStorage.getItem('uhhnjX56g7009ijhvjjycb8yubuibsd')==='true'){
             window.location.href='/Rankings';
