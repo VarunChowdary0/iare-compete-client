@@ -436,7 +436,7 @@ return (
                             </div>
                         </div>
                         <textarea value={aboutMe} onChange={(e)=>{setAbout(e.target.value)}} className="text-gray-700 h-fit min-h-[100px]
-                        max-h-[300px] outline-none w-full">
+                        max-h-[300px] max-sm:min-h-[250px] outline-none w-full">
                         </textarea>
     
                         <div className=" flex max-sm:flex-col max-sm:items-center max-sm:gap-3 items-start justify-start gap-10">
