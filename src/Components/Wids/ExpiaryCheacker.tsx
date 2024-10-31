@@ -55,7 +55,7 @@ const ExpiaryCheacker: React.FC = () => {
             <p>{timeRemaining}</p>
           </div>
         ) : (
-          <div className='w-2 h-2 rounded-full bg-red-500 fixed top-7 right-10 z-50 hover:flex'></div>
+          <div className='w-2 h-2 rounded-full bg-red-500 fixed top-7 right-10 max-sm:right-5 z-50 hover:flex'></div>
         )
       }
     </>
