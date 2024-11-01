@@ -13,6 +13,7 @@ import HomePage from './HomePage';
 import Header from './Components/Wids/Header';
 import Settings from './Components/Settings';
 import ErrorPage from './Components/ErrorPage';
+import ErrorBoundary from './ErrorBoundry';
 
 const router = createBrowserRouter([{
     path:"/",
@@ -34,7 +35,8 @@ const router = createBrowserRouter([{
     element:<Settings/>
   },{
     path:"/:rout",
-    element:<ErrorPage/>
+    element:<ErrorPage/>,
+    errorElement:<ErrorPage/>
   }
 
 ])

@@ -17,7 +17,7 @@ const ErrorPage: React.FC = () => {
       flex items-center justify-center text-2xl bg-white"
       >
         <p className="max-sm:px-5">
-          404 : The Page you are looking for is "Under Development"
+          404 : The Page you are looking do not exist. 
         </p>
         <div>
           <video
