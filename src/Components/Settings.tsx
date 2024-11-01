@@ -423,8 +423,8 @@ return (
                 <div className="col-span-4 sm:col-span-9 relative">
                     <div onClick={()=>{
                     setChanger(true)
-                    }} className=" absolute top-4 right-4 px-3 py-1 rounded-lg 
-                    text-white hover:cursor-pointer active:scale-90 transition-all
+                    }} className=" absolute top-4 right-4 px-3 py-1 rounded-lg  max-sm:scale-75
+                    text-white hover:cursor-pointer active:scale-90 transition-all max-sm:text-sm
                     bg-[#232323] select-none">Change Password</div>
 
                     <div className="bg-white shadow rounded-lg p-6">
@@ -439,19 +439,28 @@ return (
                         max-h-[300px] max-sm:min-h-[250px] outline-none w-full">
                         </textarea>
     
-                        <div className=" flex max-sm:flex-col max-sm:items-center max-sm:gap-3 items-start justify-start gap-10">
-                            <h2 className="font-bold text-center mt-8 text-xl  my-6 mb-2">
-                                Find me on
-                            </h2>
-                            <div className="flex justify-center items-center gap-6 mt-9 max-sm:mt-0">
-                                <a className="text-gray-700 hover:text-orange-600" aria-label="Visit TrendyMinds LinkedIn" href=""
-                                    target="_blank">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="h-6">
-                                        <path fill="currentColor"
-                                            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
-                                        </path>
-                                    </svg>
-                                </a>
+                        <div className=" flex flex-col max-sm:items-center max-sm:gap-3 
+                        items-start justify-start ">
+                            <div className=" flex items-center bg-black/0">
+                                <h2 className="text-xl font-bold mb-4">Find me on
+                                </h2>
+                                <div className=" mb-3 ml-5 ">
+                                <PenIcon color="black" size={12}/>
+                                </div>
+                            </div>
+                            <div className=" flex justify-center flex-col items-center gap-6 mt-2 max-sm:mt-0">
+                                <div className=" flex items-center gap-4">
+                                    <a className="text-gray-700 hover:text-orange-600" aria-label="Visit TrendyMinds LinkedIn" href=""
+                                        target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="h-6">
+                                            <path fill="currentColor"
+                                                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                    <input type="text"
+                                     className=" bg-black/10 px-2 py-1 rounded-md" />
+                                </div>
                                 <a className="text-gray-700 hover:text-orange-600" aria-label="Visit TrendyMinds YouTube" href=""
                                     target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="h-6">
