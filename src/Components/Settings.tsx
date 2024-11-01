@@ -402,7 +402,7 @@ return (
                             ">
                                 {
                                 Skills_.map((ele,id)=>
-                                    <li key={"skill-"+id} className="mb-2 bg-black/10 px-2 py-1 rounded-lg hover:bg-black/20 
+                                    <li key={"skill-"+id} className="mb-2 bg-black/10 px-2 py-1 max-sm:text-sm rounded-lg hover:bg-black/20 
                                     parent transition-all hover:cursor-pointer">{ele.Skill}
                                     <div onClick={()=>{
                                     removeSkill(ele.Skill);

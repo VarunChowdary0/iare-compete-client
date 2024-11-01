@@ -7,6 +7,7 @@ import Code_Chef from "../Icons/Code_Chef";
 import Hacker_Rank from "../Icons/Hacker_Rank";
 import StarIcon from "../Icons/Type3_icons/StarIcon";
 import GeekforGeeks from "../Icons/GeekforGeeks";
+import Skills from "./Wids/Skills";
 
 const DashBoard: React.FC = () => {
   const { roll } = useParams();
@@ -218,17 +219,7 @@ useEffect(()=>{
                             </div>
                         </div>
                         <hr className="my-6 border-t border-gray-300"/>
-                        <div className="flex flex-col">
-                        <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">Skills</span>
-                            <ul className=" flex gap-4 mt-5 flex-wrap max-h-[260px] overflow-y-auto">
-                              {
-                                Skills_.map((ele,id)=>
-                                  <li key={"skill-"+id} className="mb-2 bg-black/10 px-2 py-1 rounded-lg hover:bg-black/20 
-                                  transition-all hover:cursor-pointer">{ele.Skill}</li>
-                                )
-                              }
-                            </ul>
-                        </div>
+                       <Skills Skills_={Skills_}/>
                     </div>
                 </div>
                 <div className="col-span-4 sm:col-span-9">
@@ -530,19 +521,19 @@ useEffect(()=>{
                                     Certifications
                                 </div>
                                 {/* <dd className="order-1 text-5xl font-extrabold text-gray-700">{data?.lc_medium}</dd> */}
-                                  <div className=" flex justify-around mt-[6.1rem] max-sm:mt-3 w-full">
+                                  <div className=" flex justify-around mt-[6.1rem] max-sm:mt-3  max-sm:text-sm  w-full">
                                       <div className=" flex items-center justify-center gap-1">
-                                      <p className=" text-lg tracking-widest font-semibold">Advanced -</p>
+                                      <p className=" max-sm:text-sm text-lg tracking-widest max-sm:tracking-wide font-semibold">Advanced -</p>
                                       <p>{data?.hrc_AdvancedCertifications}</p>
                                     </div>
                                     <div className=" h-10 max-sm:h-8 w-[1px] bg-[#bdbdbd]"></div>
                                     <div className=" flex items-center justify-center gap-1">
-                                      <p className=" text-lg tracking-widest font-semibold">Intermidiate -</p>
+                                      <p className=" max-sm:text-sm text-lg tracking-widest max-sm:tracking-wide font-semibold">Intermidiate -</p>
                                       <p>{data?.hrc_IntermediateCertifications}</p>
                                     </div>
                                     <div className=" h-10 max-sm:h-8 w-[1px] bg-[#bdbdbd]"></div>
                                     <div className=" flex items-center justify-center gap-1">
-                                      <p className=" text-lg tracking-widest font-semibold">Basic -</p>
+                                      <p className=" max-sm:text-sm text-lg tracking-widest max-sm:tracking-wide font-semibold">Basic -</p>
                                       <p>{data?.hrc_BasicCertifications}</p>
                                     </div>
                                   </div>
