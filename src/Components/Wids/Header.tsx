@@ -3,6 +3,8 @@ import React from 'react'
 
 const Header:React.FC = () => {
   const path = (window.location.pathname.toLowerCase());
+
+  console.log(path.replace('/user/',''))
   return (
     <div className={` header ${path==='/rankings' ? " z-0 ":" z-[1000] "} fixed top-0 left-0 right-0 bg-[#8f3249] w-full h-[60px] flex items-center`}>
             <div className=' h-[61px] w-fit bg-white px-3'>
@@ -16,12 +18,15 @@ const Header:React.FC = () => {
           <div className=' w-full bg-black/0 h-full max-sm:hidden flex justify-start 
           items-center px-5 gap-6 text-white flex-row-reverse mr-[150px]'>
                   {localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS')!==null?
-                              <a href={"/user/"+localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS')}>
-                                  <div className={` hover:scale-105 transition-all
-                                    text-lg ${path.startsWith("/user/")?' underline text-sky-300':''} font-4`}>
-                                      <p>Profile</p>
-                                  </div>                        
-                              </a>
+                              <a href={`/user/${localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS') ?? ''}`}>
+                              <div className={`hover:scale-105 transition-all text-lg font-4 ${path.startsWith("/user/") ? 'underline text-sky-300' : ''}`}>
+                                <p className={`${path.replace('/user/','').toLowerCase() 
+                                  === (localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS')?.toLowerCase() ?? '') ? 'text-red-300' : ''}`}>
+                                  Profile
+                                </p>
+                              </div>
+                            </a>
+                            
                           :
                             <a href={"/login"}>
                             <div className={` hover:scale-105 transition-all
@@ -34,10 +39,6 @@ const Header:React.FC = () => {
                          text-lg ${path==='/settings'?'underline text-sky-300':''} font-4`}>
                         <a href="/Settings">Settings</a>
                     </div>}
-                    {/* <div className={` hover:scale-105 transition-all
-                         text-lg ${path==='/'?' underline text-sky-300':''} font-4`}>
-                        <a href="/">Home</a>
-                    </div> */}
                     <div className={` hover:scale-105 transition-all
                          text-lg ${path==='/rankings'?'underline text-sky-300':''} font-4`}>
                         <a href="/Rankings">Rankings</a>

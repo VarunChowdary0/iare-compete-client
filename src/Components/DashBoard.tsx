@@ -124,6 +124,12 @@ useEffect(()=>{
   })
   .catch((err)=>{
   console.log(err);
+  if(localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS')){
+    window.location.href = `/user/${localStorage.getItem('rollafsamsdkjbnnsan_9U9jvobdS')}`
+  }
+  else{
+    window.location.href = "/"+roll+' - User Not Found !' 
+  }
   })
 },[])
 
